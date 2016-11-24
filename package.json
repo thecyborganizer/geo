@@ -1,0 +1,35 @@
+{
+  "name": "geo",
+  "author": "MakeAwesomeHappen",
+  "version": "1.0.0",
+  "keywords": ["pebble-app"],
+  "private": true,
+  "dependencies": {},
+  "pebble": {
+    "displayName": "geo",
+    "uuid": "b39319a3-108e-4bdc-85c8-220487486c68",
+    "sdkVersion": "3",
+    "enableMultiJS": true,
+    "targetPlatforms": [
+      "aplite",
+      "basalt",
+      "chalk",
+      "diorite"
+    ],
+    "watchapp": {
+      "watchface": false
+    },
+    "capabilities": [ 
+      "location"
+    ],
+    "messageKeys": [
+      "latitude_msb",
+      "latitude_lsb",
+      "longitude_msb",
+      "longitude_lsb"
+    ],
+    "resources": {
+      "media": []
+    }
+  }
+}
