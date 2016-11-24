@@ -10,9 +10,15 @@ Pebble.addEventListener('ready', function() {
 
 var watchId;
 
-var dict = {
+var loc = {
     'latitude' : 0,
-    'longitude' : 0
+    'longitude' : 0,
+    'distance' : 0
+};
+
+var target = {
+    'latitude' : 42.400230,
+    'longitude' :  -71.116427
 };
 
 // Choose options about the data returned
@@ -24,14 +30,25 @@ var options = {
 
 function nav_success(pos) {
     console.log('lat= ' + pos.coords.latitude + ' lon= ' + pos.coords.longitude);
-    dict = {
-        'latitude_msb' : parseInt(pos.coords.latitude.toString().split(".")[0]),
-        'latitude_lsb' : parseInt(pos.coords.latitude.toString().split(".")[1]),
-        'longitude_msb' : parseInt(pos.coords.longitude.toString().split(".")[0]),
-        'longitude_lsb' : parseInt(pos.coords.longitude.toString().split(".")[1])
+
+    var lat = pos.coords.latitude.toString();
+    var lon = pos.coords.longitude.toString();
+
+    var lat_delta = lat - target.latitude;
+    var lon_delta = lon - target.longitude;
+
+    var distance = Math.sqrt(lat_delta*lat_delta + lon_delta*lon_delta)*69.172;
+
+    console.log('distance = ' + distance);
+
+    loc = {
+        'latitude' : lat.toString().substring(0,5),
+        'longitude' : lon.toString().substring(0,5),
+        'distance' : distance.toString().substring(0,5)
     };
-    Pebble.sendAppMessage(dict, function() {
-        console.log('Message sent successfully: ' + JSON.stringify(dict));
+
+    Pebble.sendAppMessage(loc, function() {
+        console.log('Message sent successfully: ' + JSON.stringify(loc));
     }, function(e) {
         console.log('Message failed: ' + JSON.stringify(e));
     });
@@ -40,7 +57,7 @@ function nav_success(pos) {
 function nav_error(err) {
     console.log('location error (' + err.code + '): ' + err.message);
 }
-
-navigator.geolocation.getCurrentPosition(nav_success, nav_error, options);
+watchId = navigator.geolocation.watchPosition(nav_success, nav_error, options);
+//navigator.geolocation.getCurrentPosition(nav_success, nav_error, options);
 
 

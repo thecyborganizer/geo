@@ -23,10 +23,9 @@
       "location"
     ],
     "messageKeys": [
-      "latitude_msb",
-      "latitude_lsb",
-      "longitude_msb",
-      "longitude_lsb"
+      "latitude",
+      "longitude",
+      "distance"
     ],
     "resources": {
       "media": []
