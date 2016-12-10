@@ -21,14 +21,19 @@ const resolveRoots = ["/Users/jkeller/Library/Application Support/Pebble SDK/SDK
 "/Users/jkeller/pebble/geo/build/js"];
 
 // Object, { alias1: 'path1', ... }
-const resolveAliases = {};
+const resolveAliases = {"app_package.json": "/Users/jkeller/pebble/geo/package.json"};
+
+// null or Object with key 'sourceMapFilename'
+const sourceMapConfig = {"sourceMapFilename": "pebble-js-app.js.map"};
 
 ////////////////////////////////////////////////////////////////////////////////
 // NOTE: Must escape dollar-signs, because this is a Python template!
 
 const webpack = require('webpack');
 
-module.exports = {
+module.exports = (() => {
+  // The basic config:
+  const config = {
     entry: entryFilenames,
     output: {
         path: outputPath,
@@ -43,7 +48,18 @@ module.exports = {
     resolveLoader: {
         root: resolveRoots
     }
-};
+  };
+
+  if (sourceMapConfig) {
+    // Enable webpack's source map output:
+    config.devtool = 'source-map';
+    config.output.sourceMapFilename = sourceMapConfig.sourceMapFilename;
+    config.output.devtoolModuleFilenameTemplate = '[resource-path]';
+    config.output.devtoolFallbackModuleFilenameTemplate = '[resourcePath]?[hash]';
+  }
+
+  return config;
+})();
 
 module.exports.plugins = (() => {
   const plugins = [

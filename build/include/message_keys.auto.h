@@ -6,7 +6,7 @@
 // DO NOT MODIFY - CHANGES WILL BE OVERWRITTEN
 //
 
-extern uint32_t MESSAGE_KEY_latitude_lsb;
-extern uint32_t MESSAGE_KEY_latitude_msb;
-extern uint32_t MESSAGE_KEY_longitude_lsb;
-extern uint32_t MESSAGE_KEY_longitude_msb;
+extern uint32_t MESSAGE_KEY_distance;
+extern uint32_t MESSAGE_KEY_latitude;
+extern uint32_t MESSAGE_KEY_longitude;
+extern uint32_t MESSAGE_KEY_msg;

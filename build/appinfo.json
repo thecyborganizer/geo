@@ -8,10 +8,10 @@
     "displayName": "geo", 
     "name": "geo", 
     "messageKeys": {
-        "longitude_lsb": 10003, 
-        "longitude_msb": 10002, 
-        "latitude_lsb": 10001, 
-        "latitude_msb": 10000
+        "latitude": 10000, 
+        "distance": 10002, 
+        "longitude": 10001, 
+        "msg": 10003
     }, 
     "companyName": "MakeAwesomeHappen", 
     "enableMultiJS": true, 
@@ -21,10 +21,10 @@
     ], 
     "sdkVersion": "3", 
     "appKeys": {
-        "longitude_lsb": 10003, 
-        "longitude_msb": 10002, 
-        "latitude_lsb": 10001, 
-        "latitude_msb": 10000
+        "latitude": 10000, 
+        "distance": 10002, 
+        "longitude": 10001, 
+        "msg": 10003
     }, 
     "longName": "geo", 
     "shortName": "geo", 

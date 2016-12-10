@@ -1,6 +1,6 @@
 {
-    "latitude_lsb": 10001,
-    "latitude_msb": 10000,
-    "longitude_lsb": 10003,
-    "longitude_msb": 10002
+    "distance": 10002,
+    "latitude": 10000,
+    "longitude": 10001,
+    "msg": 10003
 }

@@ -25,7 +25,8 @@
     "messageKeys": [
       "latitude",
       "longitude",
-      "distance"
+      "distance",
+      "msg"
     ],
     "resources": {
       "media": []
